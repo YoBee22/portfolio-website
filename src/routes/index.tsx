@@ -1,24 +1,216 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {
+  ArrowDownToLine,
+  ArrowUpRight,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
+import heroImage from "../assets/data-network-hero.jpg";
+import resumeAsset from "../assets/Yogita_Bisht_Resume.pdf.asset.json";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Yogita Bisht — Data Scientist & Software Engineer" },
+      { name: "description", content: "Data Scientist and Software Engineer building production-ready ML systems, intelligent applications, and dependable data pipelines." },
+      { property: "og:title", content: "Yogita Bisht — Data Scientist & Software Engineer" },
+      { property: "og:description", content: "Explore Yogita Bisht’s work across machine learning, RAG applications, and production data engineering." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Portfolio,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const projects = [
+  {
+    number: "01",
+    title: "AskNEU — RAG Assistant",
+    description: "A conversational assistant that turns 500+ university web pages into accurate, observable answers for students.",
+    impact: "95% retrieval accuracy",
+    tags: ["LangChain", "Hugging Face", "Pinecone", "Airflow", "GCP"],
+  },
+  {
+    number: "02",
+    title: "Financial Recommendation Engine",
+    description: "An end-to-end recommendation system matching user profiles with 26K+ financial products and explaining each recommendation.",
+    impact: "0.94 F1 risk classifier",
+    tags: ["Python", "XGBoost", "MLflow", "RAG", "Streamlit"],
+  },
+  {
+    number: "03",
+    title: "Melanoma Detection Research",
+    description: "Hybrid CNN–Vision Transformer benchmarks designed for dependable detection across a severely imbalanced clinical dataset.",
+    impact: "95% sensitivity · 0.96 AUC",
+    tags: ["PyTorch", "ViT", "CNN", "Computer Vision", "400K+ images"],
+  },
+];
+
+const skills = [
+  { label: "Core languages", values: ["Python", "SQL", "Bash / Linux"] },
+  { label: "Data engineering", values: ["PySpark", "Airflow", "AWS Glue", "Pinecone"] },
+  { label: "Machine learning / AI", values: ["PyTorch", "Scikit-learn", "XGBoost", "LangChain", "RAG"] },
+  { label: "Cloud / operations", values: ["AWS", "GCP", "Docker", "GitHub Actions", "MLflow"] },
+];
+
+function Portfolio() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-xl">
+        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8" aria-label="Main navigation">
+          <a href="#top" className="font-display text-base font-semibold text-foreground">YB<span className="text-primary">.</span></a>
+          <div className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
+            <a className="transition-colors hover:text-foreground" href="#about">About</a>
+            <a className="transition-colors hover:text-foreground" href="#projects">Projects</a>
+            <a className="transition-colors hover:text-foreground" href="#skills">Expertise</a>
+            <a className="transition-colors hover:text-foreground" href="#credentials">Credentials</a>
+          </div>
+          <a href="mailto:me@yogitabisht.com" className="inline-flex h-9 items-center gap-2 rounded-md border border-border px-3 text-xs font-semibold uppercase tracking-wider transition-colors hover:border-primary hover:text-primary">
+            <Mail size={14} /> Contact
+          </a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section className="relative flex min-h-[92vh] items-end overflow-hidden pt-24">
+          <img src={heroImage} width={1600} height={1000} alt="Abstract network of connected data points" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--background)_0%,color-mix(in_oklab,var(--background)_94%,transparent)_48%,color-mix(in_oklab,var(--background)_30%,transparent)_100%)]" />
+          <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 lg:px-8 lg:pb-20">
+            <div className="max-w-4xl">
+              <div className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
+                <span className="h-px w-8 bg-secondary" /> Data Scientist · Software Engineer
+              </div>
+              <h1 className="font-display text-5xl font-semibold leading-[1.02] sm:text-6xl lg:text-8xl">
+                Engineering rigor.<br />Data intelligence.<br /><span className="text-primary">Production impact.</span>
+              </h1>
+              <p className="mt-7 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+                I’m Yogita Bisht — building production-ready ML systems and data pipelines that turn complex information into dependable decisions.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a href="#projects" className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-5 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5">View projects <ArrowUpRight size={17} /></a>
+                <a href={resumeAsset.url} download="Yogita_Bisht_Resume.pdf" className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background/50 px-5 text-sm font-semibold transition-colors hover:border-foreground/50"><ArrowDownToLine size={17} /> Download resume</a>
+              </div>
+            </div>
+            <div className="mt-10 flex flex-wrap items-center gap-5 border-t border-border/70 pt-6 text-sm text-muted-foreground">
+              <span className="flex items-center gap-2"><MapPin size={15} className="text-secondary" /> New York City, NY</span>
+              <SocialLink href="https://github.com/YoBee22" label="GitHub"><Github size={17} /></SocialLink>
+              <SocialLink href="https://www.linkedin.com/in/yogita-bisht/" label="LinkedIn"><Linkedin size={17} /></SocialLink>
+              <SocialLink href="mailto:me@yogitabisht.com" label="Email"><Mail size={17} /></SocialLink>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="border-y border-border bg-card/40 py-24">
+          <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
+            <SectionLabel number="01" label="Transition story" />
+            <div>
+              <h2 className="max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-5xl">From diagnosing vehicles to designing intelligent systems.</h2>
+              <div className="mt-8 grid gap-8 text-muted-foreground md:grid-cols-2">
+                <p className="leading-7">At Mercedes-Benz R&amp;D, I built data pipelines across 500GB+ of vehicle fault logs, improved automated coverage, and helped engineers resolve critical issues faster.</p>
+                <p className="leading-7">Now, as a Data Science graduate student and researcher at Northeastern, I bring that same production discipline to machine learning—from explainable recommendations to high-sensitivity medical vision models.</p>
+              </div>
+              <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-4">
+                <Metric value="500GB+" label="ECU logs engineered" />
+                <Metric value="20%" label="Fewer missed errors" />
+                <Metric value="95%" label="Test coverage" />
+                <Metric value="400K+" label="Research images" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" className="py-24">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+            <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
+              <SectionLabel number="02" label="Selected work" />
+              <h2 className="font-display text-4xl font-semibold sm:text-5xl">Systems built for real-world outcomes.</h2>
+            </div>
+            <div className="mt-12 grid gap-4 lg:grid-cols-3">
+              {projects.map((project) => <ProjectCard key={project.number} {...project} />)}
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" className="border-y border-border bg-card/40 py-24">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+            <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
+              <SectionLabel number="03" label="Technical expertise" />
+              <div>
+                <h2 className="font-display text-4xl font-semibold sm:text-5xl">Across the full data lifecycle.</h2>
+                <div className="mt-12 divide-y divide-border border-y border-border">
+                  {skills.map((skill) => (
+                    <div key={skill.label} className="grid gap-4 py-7 md:grid-cols-[12rem_1fr]">
+                      <h3 className="text-sm font-semibold text-secondary">{skill.label}</h3>
+                      <div className="flex flex-wrap gap-x-6 gap-y-2 text-lg text-foreground">{skill.values.map((value) => <span key={value}>{value}</span>)}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="credentials" className="py-24">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+              <SectionLabel number="04" label="Credentials" />
+              <div className="space-y-4">
+                <Credential degree="Master of Science in Data Science" school="Northeastern University" detail="2024–2026 · GPA 3.6/4.0" />
+                <Credential degree="Bachelor of Engineering in Computer Science" school="Visvesvaraya Technological University" detail="2017–2021 · CGPA 8.5/10" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-border bg-card/60">
+        <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+          <p className="max-w-3xl font-display text-3xl font-semibold sm:text-5xl">Let’s build something intelligent—and make it work in production.</p>
+          <div className="mt-10 flex flex-col justify-between gap-8 border-t border-border pt-7 md:flex-row md:items-end">
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <a className="flex items-center gap-2 hover:text-primary" href="mailto:me@yogitabisht.com"><Mail size={15} /> me@yogitabisht.com</a>
+              <a className="flex items-center gap-2 hover:text-primary" href="tel:+18578321780"><Phone size={15} /> +1 (857) 832-1780</a>
+            </div>
+            <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
+              <a href="#top" className="hover:text-foreground">Top</a><a href="#projects" className="hover:text-foreground">Projects</a><a href="https://github.com/YoBee22" className="hover:text-foreground">GitHub</a><a href="https://www.linkedin.com/in/yogita-bisht/" className="hover:text-foreground">LinkedIn</a>
+            </div>
+          </div>
+          <p className="mt-10 text-xs text-muted-foreground">© 2026 Yogita Bisht. Designed for clarity, built with care.</p>
+        </div>
+      </footer>
     </div>
   );
+}
+
+function SocialLink({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
+  return <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" aria-label={label} className="flex items-center gap-2 transition-colors hover:text-primary">{children}<span>{label}</span></a>;
+}
+
+function SectionLabel({ number, label }: { number: string; label: string }) {
+  return <div className="flex h-fit items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground"><span className="font-display text-primary">{number}</span><span className="h-px w-8 bg-border" />{label}</div>;
+}
+
+function Metric({ value, label }: { value: string; label: string }) {
+  return <div className="bg-background p-5"><strong className="font-display text-2xl text-primary">{value}</strong><span className="mt-1 block text-xs text-muted-foreground">{label}</span></div>;
+}
+
+function ProjectCard({ number, title, description, impact, tags }: (typeof projects)[number]) {
+  return (
+    <article className="group flex min-h-[28rem] flex-col rounded-md border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-[0_18px_50px_color-mix(in_oklab,var(--primary)_10%,transparent)]">
+      <div className="flex items-start justify-between"><span className="font-display text-sm text-primary">{number}</span><Github size={18} className="text-muted-foreground transition-colors group-hover:text-foreground" /></div>
+      <div className="mt-auto">
+        <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-secondary">{impact}</p>
+        <h3 className="font-display text-2xl font-semibold">{title}</h3>
+        <p className="mt-4 text-sm leading-6 text-muted-foreground">{description}</p>
+        <div className="mt-6 flex flex-wrap gap-2">{tags.map((tag) => <span key={tag} className="rounded-sm border border-border bg-muted px-2 py-1 text-[11px] text-muted-foreground">{tag}</span>)}</div>
+      </div>
+    </article>
+  );
+}
+
+function Credential({ degree, school, detail }: { degree: string; school: string; detail: string }) {
+  return <article className="grid gap-4 rounded-md border border-border bg-card p-6 transition-colors hover:border-primary/50 sm:grid-cols-[1fr_auto] sm:items-center"><div><p className="text-sm font-semibold text-secondary">{school}</p><h3 className="mt-2 font-display text-xl font-semibold">{degree}</h3></div><p className="text-sm text-muted-foreground sm:text-right">{detail}</p></article>;
 }
