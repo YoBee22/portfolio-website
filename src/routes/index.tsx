@@ -76,7 +76,7 @@ function Portfolio() {
 
       <main id="top">
         <section className="relative flex min-h-[92vh] items-end overflow-hidden pt-24">
-          <img src={heroImage} width={1600} height={1000} alt="Abstract network of connected data points" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <img src={heroImage} width={1600} height={1008} alt="Abstract network of connected data points" className="absolute inset-0 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--background)_0%,color-mix(in_oklab,var(--background)_94%,transparent)_48%,color-mix(in_oklab,var(--background)_30%,transparent)_100%)]" />
           <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 lg:px-8 lg:pb-20">
             <div className="max-w-4xl">
