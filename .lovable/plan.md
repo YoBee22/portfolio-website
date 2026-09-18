@@ -6,10 +6,10 @@ Build a polished, recruiter-friendly portfolio positioning Yogita Bisht as a Dat
 ## Page structure
 - **Navigation:** Minimal sticky header with Yogita’s name, section links, and a compact contact action.
 - **Hero:** Strong dual-discipline positioning statement, New York location, “View Projects” and “Download Resume” actions, plus GitHub, LinkedIn, and email icons.
-- **Transition story:** A concise narrative connecting software engineering rigor with data science, machine learning, and measurable business outcomes.
-- **Featured projects:** Three distinct, interactive case-study cards spanning an AI/RAG application, predictive modeling, and a production data pipeline. Each includes stack tags, concise impact, GitHub, and demo actions.
+- **Transition story:** A concise narrative grounded in Yogita’s progression from automotive diagnostics and data engineering at Mercedes-Benz R&D to graduate data science research at Northeastern University.
+- **Featured projects:** Three interactive, resume-backed case studies: AskNEU RAG Assistant, Personalized Financial Recommendation System, and Skin Cancer Detection research. Each will highlight verified metrics, stack tags, and project links where available.
 - **Skills matrix:** Scannable groups for Core Languages, Data Engineering, Machine Learning/AI, and Cloud/Ops.
-- **Certifications:** A clean credentials list with issuer and verification actions. Missing credential details will be clearly presented as replaceable sample content rather than asserted as real achievements.
+- **Credentials:** A clean credentials area featuring Yogita’s MS in Data Science at Northeastern and BE in Computer Science at Visvesvaraya Technological University. No unverified certifications will be presented as real.
 - **Footer:** Copyright, quick links, and direct contact via email, phone, LinkedIn, and GitHub.
 
 ## Visual direction
@@ -21,11 +21,12 @@ Build a polished, recruiter-friendly portfolio positioning Yogita Bisht as a Dat
 - Motion will remain subtle and respect reduced-motion preferences.
 
 ## Content and interactions
-- Use Yogita Bisht’s supplied location, email, phone, LinkedIn, GitHub, and website.
+- Use Yogita Bisht’s supplied New York City location, email, phone, LinkedIn, GitHub, and website; the newer location supplied in chat takes precedence over the resume’s Boston location.
 - Scroll the primary action directly to the projects section.
 - Make social, contact, project, demo, certification, and resume actions functional where a real URL is available.
-- Use polished sample project details for missing content, written to be easy to replace later.
-- Provide a clearly labeled placeholder behavior for the resume until a resume file or URL is supplied.
+- Use the resume’s verified experience and metrics, including 95% melanoma sensitivity, 0.96 AUC-ROC, 500GB+ ECU logs, 20% fewer undetected errors, and 95% RAG retrieval accuracy.
+- Add the uploaded resume as the real downloadable file for the “Download Resume” action.
+- Use clearly labeled placeholders only for missing GitHub/demo and certification verification URLs.
 
 ## Technical details
 - Implement the experience on the existing home page with reusable React sections and semantic design tokens.
