@@ -15,9 +15,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Yogita Bisht — Data Scientist & Software Engineer" },
-      { name: "description", content: "Data Scientist and Software Engineer building production-ready ML systems, intelligent applications, and dependable data pipelines." },
+      { name: "description", content: "Portfolio of Yogita Bisht — machine learning projects, RAG applications, and data pipelines, alongside a background in software engineering." },
       { property: "og:title", content: "Yogita Bisht — Data Scientist & Software Engineer" },
-      { property: "og:description", content: "Explore Yogita Bisht’s work across machine learning, RAG applications, and production data engineering." },
+      { property: "og:description", content: "Yogita Bisht works on machine learning models and the data pipelines behind them. See projects, skills, and credentials." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -29,21 +29,21 @@ const projects = [
   {
     number: "01",
     title: "AskNEU — RAG Assistant",
-    description: "A conversational assistant that turns 500+ university web pages into accurate, observable answers for students.",
+    description: "A question-answering assistant built over 500+ university web pages, so students can ask in plain language and trace an answer back to its source.",
     impact: "95% retrieval accuracy",
     tags: ["LangChain", "Hugging Face", "Pinecone", "Airflow", "GCP"],
   },
   {
     number: "02",
     title: "Financial Recommendation Engine",
-    description: "An end-to-end recommendation system matching user profiles with 26K+ financial products and explaining each recommendation.",
+    description: "A recommendation system that matches user profiles against 26K+ financial products and gives a reason for each suggestion.",
     impact: "0.94 F1 risk classifier",
     tags: ["Python", "XGBoost", "MLflow", "RAG", "Streamlit"],
   },
   {
     number: "03",
     title: "Melanoma Detection Research",
-    description: "Hybrid CNN–Vision Transformer benchmarks designed for dependable detection across a severely imbalanced clinical dataset.",
+    description: "A comparison of CNN and Vision Transformer models for melanoma detection on a heavily imbalanced medical image dataset.",
     impact: "95% sensitivity · 0.96 AUC",
     tags: ["PyTorch", "ViT", "CNN", "Computer Vision", "400K+ images"],
   },
@@ -83,11 +83,11 @@ function Portfolio() {
               <div className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
                 <span className="h-px w-8 bg-secondary" /> Data Scientist · Software Engineer
               </div>
-              <h1 className="font-display text-5xl font-semibold leading-[1.02] sm:text-6xl lg:text-8xl">
-                Engineering rigor.<br />Data intelligence.<br /><span className="text-primary">Production impact.</span>
+              <h1 className="font-display text-5xl font-semibold leading-[1.05] sm:text-6xl lg:text-7xl">
+                Hi, I’m Yogita Bisht.
               </h1>
               <p className="mt-7 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-                I’m Yogita Bisht — building production-ready ML systems and data pipelines that turn complex information into dependable decisions.
+                I work on machine learning models and the data pipelines behind them, and I pay attention to how they behave once people actually start using them.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a href="#projects" className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-5 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5">View projects <ArrowUpRight size={17} /></a>
@@ -107,10 +107,10 @@ function Portfolio() {
           <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
             <SectionLabel number="01" label="Transition story" />
             <div>
-              <h2 className="max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-5xl">From diagnosing vehicles to designing intelligent systems.</h2>
+              <h2 className="max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-4xl">From vehicle diagnostics to data science.</h2>
               <div className="mt-8 grid gap-8 text-muted-foreground md:grid-cols-2">
-                <p className="leading-7">At Mercedes-Benz R&amp;D, I built data pipelines across 500GB+ of vehicle fault logs, improved automated coverage, and helped engineers resolve critical issues faster.</p>
-                <p className="leading-7">Now, as a Data Science graduate student and researcher at Northeastern, I bring that same production discipline to machine learning—from explainable recommendations to high-sensitivity medical vision models.</p>
+                <p className="leading-7">At Mercedes-Benz R&amp;D I worked on data pipelines over 500GB+ of vehicle fault logs, and on test automation that helped engineers find critical issues sooner.</p>
+                <p className="leading-7">I’m now studying data science at Northeastern and doing research alongside it — recommendation systems that explain their suggestions, and medical vision models trained to catch rare cases.</p>
               </div>
               <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-4">
                 <Metric value="500GB+" label="ECU logs engineered" />
@@ -126,7 +126,7 @@ function Portfolio() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
               <SectionLabel number="02" label="Selected work" />
-              <h2 className="font-display text-4xl font-semibold sm:text-5xl">Systems built for real-world outcomes.</h2>
+              <h2 className="font-display text-3xl font-semibold sm:text-4xl">A few projects I’ve worked on.</h2>
             </div>
             <div className="mt-12 grid gap-4 lg:grid-cols-3">
               {projects.map((project) => <ProjectCard key={project.number} {...project} />)}
@@ -139,7 +139,7 @@ function Portfolio() {
             <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
               <SectionLabel number="03" label="Technical expertise" />
               <div>
-                <h2 className="font-display text-4xl font-semibold sm:text-5xl">Across the full data lifecycle.</h2>
+                <h2 className="font-display text-3xl font-semibold sm:text-4xl">Tools I work with.</h2>
                 <div className="mt-12 divide-y divide-border border-y border-border">
                   {skills.map((skill) => (
                     <div key={skill.label} className="grid gap-4 py-7 md:grid-cols-[12rem_1fr]">
@@ -168,7 +168,7 @@ function Portfolio() {
 
       <footer className="border-t border-border bg-card/60">
         <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
-          <p className="max-w-3xl font-display text-3xl font-semibold sm:text-5xl">Let’s build something intelligent—and make it work in production.</p>
+          <p className="max-w-3xl font-display text-2xl font-semibold leading-snug sm:text-3xl">I’m open to data science and machine learning roles. If any of this is relevant to your team, I’d be glad to talk.</p>
           <div className="mt-10 flex flex-col justify-between gap-8 border-t border-border pt-7 md:flex-row md:items-end">
             <div className="space-y-2 text-sm text-muted-foreground">
               <a className="flex items-center gap-2 hover:text-primary" href="mailto:me@yogitabisht.com"><Mail size={15} /> me@yogitabisht.com</a>
@@ -178,7 +178,7 @@ function Portfolio() {
               <a href="#top" className="hover:text-foreground">Top</a><a href="#projects" className="hover:text-foreground">Projects</a><a href="https://github.com/YoBee22" className="hover:text-foreground">GitHub</a><a href="https://www.linkedin.com/in/yogita-bisht/" className="hover:text-foreground">LinkedIn</a>
             </div>
           </div>
-          <p className="mt-10 text-xs text-muted-foreground">© 2026 Yogita Bisht. Designed for clarity, built with care.</p>
+          <p className="mt-10 text-xs text-muted-foreground">© 2026 Yogita Bisht.</p>
         </div>
       </footer>
     </div>
