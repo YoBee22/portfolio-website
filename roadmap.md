@@ -1,6 +1,5 @@
-## Open
-- LinkedIn URL broken — waiting on correct URL from user (resume lists /in/yogita-bisht/)
 ## Done
 - Resume download dropdown (DS + AI options) replacing single resume button
 - Project cards compacted (smaller padding, title, min-height removed)
-- Footer tagline to be simplified per user
+- Footer tagline simplified to 'Get in touch.'
+- LinkedIn link verified (linkedin.com/in/yogita-bisht/, target=_blank, confirmed by user)
