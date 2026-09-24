@@ -94,7 +94,7 @@ function Portfolio() {
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a href="#projects" className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-5 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5">View projects <ArrowUpRight size={17} /></a>
-                <a href={resumeAsset.url} download="Yogita_Bisht_Resume.pdf" className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background/50 px-5 text-sm font-semibold transition-colors hover:border-foreground/50"><ArrowDownToLine size={17} /> Download resume</a>
+                <ResumeDownload />
               </div>
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-5 border-t border-border/70 pt-6 text-sm text-muted-foreground">
@@ -202,13 +202,13 @@ function Metric({ value, label }: { value: string; label: string }) {
 
 function ProjectCard({ number, title, description, impact, tags }: (typeof projects)[number]) {
   return (
-    <article className="group flex min-h-[28rem] flex-col rounded-md border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-[0_18px_50px_color-mix(in_oklab,var(--primary)_10%,transparent)]">
-      <div className="flex items-start justify-between"><span className="font-display text-sm text-primary">{number}</span><Github size={18} className="text-muted-foreground transition-colors group-hover:text-foreground" /></div>
-      <div className="mt-auto">
-        <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-secondary">{impact}</p>
-        <h3 className="font-display text-2xl font-semibold">{title}</h3>
-        <p className="mt-4 text-sm leading-6 text-muted-foreground">{description}</p>
-        <div className="mt-6 flex flex-wrap gap-2">{tags.map((tag) => <span key={tag} className="rounded-sm border border-border bg-muted px-2 py-1 text-[11px] text-muted-foreground">{tag}</span>)}</div>
+    <article className="group flex flex-col rounded-md border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-[0_14px_40px_color-mix(in_oklab,var(--primary)_10%,transparent)]">
+      <div className="flex items-start justify-between"><span className="font-display text-xs text-primary">{number}</span><Github size={16} className="text-muted-foreground transition-colors group-hover:text-foreground" /></div>
+      <div className="mt-4">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-secondary">{impact}</p>
+        <h3 className="mt-2 font-display text-lg font-semibold leading-snug">{title}</h3>
+        <p className="mt-2.5 text-[13px] leading-5 text-muted-foreground">{description}</p>
+        <div className="mt-4 flex flex-wrap gap-1.5">{tags.map((tag) => <span key={tag} className="rounded-sm border border-border bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground">{tag}</span>)}</div>
       </div>
     </article>
   );
