@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import {
   ArrowDownToLine,
   ArrowUpRight,
-  ChevronDown,
+  BadgeCheck,
+  ExternalLink,
   Github,
   Linkedin,
   Mail,
@@ -11,8 +11,8 @@ import {
   Phone,
 } from "lucide-react";
 import heroImage from "../assets/data-network-hero.jpg";
-import dsResumeAsset from "../assets/Yogita_Bisht_DS.pdf.asset.json";
-import aiResumeAsset from "../assets/Yogita_Bisht_AI.pdf.asset.json";
+
+const resumeUrl = "/Yogita_Bisht_Resume.pdf";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -57,6 +57,23 @@ const skills = [
   { label: "Data engineering", values: ["PySpark", "Airflow", "AWS Glue", "Pinecone"] },
   { label: "Machine learning / AI", values: ["PyTorch", "Scikit-learn", "XGBoost", "LangChain", "RAG"] },
   { label: "Cloud / operations", values: ["AWS", "GCP", "Docker", "GitHub Actions", "MLflow"] },
+];
+
+const certificates = [
+  {
+    name: "Claude with the Anthropic API",
+    issuer: "Anthropic",
+    date: "August 2026",
+    fileUrl: "/certificates/claude-with-the-anthropic-api.pdf",
+    downloadName: "Yogita_Bisht_Claude_Anthropic_API.pdf",
+  },
+  {
+    name: "Claude Code 101",
+    issuer: "Anthropic",
+    date: "July 2026",
+    fileUrl: "/certificates/claude-code-101.pdf",
+    downloadName: "Yogita_Bisht_Claude_Code_101.pdf",
+  },
 ];
 
 function Portfolio() {
@@ -160,9 +177,23 @@ function Portfolio() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
               <SectionLabel number="04" label="Credentials" />
-              <div className="space-y-4">
-                <Credential degree="Master of Science in Data Science" school="Northeastern University" detail="2024–2026 · GPA 3.6/4.0" />
-                <Credential degree="Bachelor of Engineering in Computer Science" school="Visvesvaraya Technological University" detail="2017–2021 · CGPA 8.5/10" />
+              <div className="space-y-10">
+                <div>
+                  <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Education</h3>
+                  <div className="space-y-4">
+                    <Credential degree="Master of Science in Data Science" school="Northeastern University" detail="2024–2026 · GPA 3.6/4.0" />
+                    <Credential degree="Bachelor of Engineering in Computer Science" school="Visvesvaraya Technological University" detail="2017–2021 · CGPA 8.5/10" />
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Certificates</h3>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {certificates.map((cert) => (
+                      <CertificateCard key={cert.name} {...cert} />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -189,35 +220,16 @@ function Portfolio() {
 }
 
 function ResumeDownload() {
-  const [open, setOpen] = useState(false);
   return (
-    <div className="relative">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        onKeyDown={(e) => { if (e.key === "Escape") setOpen(false); }}
-        aria-expanded={open}
-        aria-haspopup="menu"
-        className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background/50 px-5 text-sm font-semibold transition-colors hover:border-foreground/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-      >
-        <ArrowDownToLine size={17} /> Download resume <ChevronDown size={15} className={`transition-transform ${open ? "rotate-180" : ""}`} />
-      </button>
-      {open && (
-        <>
-          <button type="button" aria-hidden tabIndex={-1} onClick={() => setOpen(false)} className="fixed inset-0 z-40 cursor-default" />
-          <div role="menu" className="absolute left-0 top-[calc(100%+0.5rem)] z-50 w-64 overflow-hidden rounded-md border border-border bg-card py-1 shadow-[0_18px_50px_rgba(0,0,0,0.45)]">
-            <a role="menuitem" href={dsResumeAsset.url} download="Yogita_Bisht_DS.pdf" onClick={() => setOpen(false)} className="flex items-center justify-between gap-3 px-4 py-3 text-sm transition-colors hover:bg-muted">
-              <span><span className="block font-semibold">Data Science resume</span><span className="block text-xs text-muted-foreground">DS / ML roles</span></span>
-              <ArrowDownToLine size={15} className="text-muted-foreground" />
-            </a>
-            <a role="menuitem" href={aiResumeAsset.url} download="Yogita_Bisht_AI.pdf" onClick={() => setOpen(false)} className="flex items-center justify-between gap-3 px-4 py-3 text-sm transition-colors hover:bg-muted">
-              <span><span className="block font-semibold">AI resume</span><span className="block text-xs text-muted-foreground">AI / ML roles</span></span>
-              <ArrowDownToLine size={15} className="text-muted-foreground" />
-            </a>
-          </div>
-        </>
-      )}
-    </div>
+    <a
+      href={resumeUrl}
+      download="Yogita_Bisht_Resume.pdf"
+      target="_blank"
+      rel="noreferrer"
+      className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background/50 px-5 text-sm font-semibold transition-colors hover:border-foreground/50 hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+    >
+      <ArrowDownToLine size={17} /> Download resume
+    </a>
   );
 }
 
@@ -249,4 +261,47 @@ function ProjectCard({ number, title, description, impact, tags }: (typeof proje
 
 function Credential({ degree, school, detail }: { degree: string; school: string; detail: string }) {
   return <article className="grid gap-4 rounded-md border border-border bg-card p-6 transition-colors hover:border-primary/50 sm:grid-cols-[1fr_auto] sm:items-center"><div><p className="text-sm font-semibold text-secondary">{school}</p><h3 className="mt-2 font-display text-xl font-semibold">{degree}</h3></div><p className="text-sm text-muted-foreground sm:text-right">{detail}</p></article>;
+}
+
+function CertificateCard({
+  name,
+  issuer,
+  date,
+  fileUrl,
+  downloadName,
+}: (typeof certificates)[number]) {
+  return (
+    <article className="group flex flex-col justify-between rounded-md border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/60 hover:shadow-[0_12px_30px_color-mix(in_oklab,var(--primary)_8%,transparent)]">
+      <div>
+        <div className="flex items-center justify-between gap-2">
+          <span className="inline-flex items-center gap-1.5 rounded-sm border border-secondary/30 bg-secondary/10 px-2 py-0.5 text-[11px] font-semibold tracking-wide text-secondary">
+            <BadgeCheck size={13} /> {issuer}
+          </span>
+          <span className="text-xs text-muted-foreground">{date}</span>
+        </div>
+        <h4 className="mt-3 font-display text-base font-semibold leading-snug text-foreground">
+          {name}
+        </h4>
+      </div>
+
+      <div className="mt-5 flex items-center gap-3 border-t border-border/70 pt-3.5 text-xs">
+        <a
+          href={fileUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1.5 font-medium text-primary transition-colors hover:text-primary/80 hover:underline"
+        >
+          <ExternalLink size={13} /> View
+        </a>
+        <span className="text-border">·</span>
+        <a
+          href={fileUrl}
+          download={downloadName}
+          className="inline-flex items-center gap-1.5 font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline"
+        >
+          <ArrowDownToLine size={13} /> Download
+        </a>
+      </div>
+    </article>
+  );
 }
