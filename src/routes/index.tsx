@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   ArrowDownToLine,
   ArrowUpRight,
+  ChevronDown,
   Github,
   Linkedin,
   Mail,
@@ -9,7 +11,8 @@ import {
   Phone,
 } from "lucide-react";
 import heroImage from "../assets/data-network-hero.jpg";
-import resumeAsset from "../assets/Yogita_Bisht_Resume.pdf.asset.json";
+import dsResumeAsset from "../assets/Yogita_Bisht_DS.pdf.asset.json";
+import aiResumeAsset from "../assets/Yogita_Bisht_AI.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
