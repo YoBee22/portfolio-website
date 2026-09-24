@@ -188,6 +188,36 @@ function Portfolio() {
   );
 }
 
+function ResumeDownload() {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        onBlur={() => setTimeout(() => setOpen(false), 120)}
+        aria-expanded={open}
+        aria-haspopup="menu"
+        className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background/50 px-5 text-sm font-semibold transition-colors hover:border-foreground/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      >
+        <ArrowDownToLine size={17} /> Download resume <ChevronDown size={15} className={`transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div role="menu" className="absolute left-0 top-[calc(100%+0.5rem)] z-50 w-64 overflow-hidden rounded-md border border-border bg-card py-1 shadow-[0_18px_50px_rgba(0,0,0,0.45)]">
+          <a role="menuitem" href={dsResumeAsset.url} download="Yogita_Bisht_DS.pdf" className="flex items-center justify-between gap-3 px-4 py-3 text-sm transition-colors hover:bg-muted">
+            <span><span className="block font-semibold">Data Science resume</span><span className="block text-xs text-muted-foreground">DS / ML roles</span></span>
+            <ArrowDownToLine size={15} className="text-muted-foreground" />
+          </a>
+          <a role="menuitem" href={aiResumeAsset.url} download="Yogita_Bisht_AI.pdf" className="flex items-center justify-between gap-3 px-4 py-3 text-sm transition-colors hover:bg-muted">
+            <span><span className="block font-semibold">AI resume</span><span className="block text-xs text-muted-foreground">AI / ML roles</span></span>
+            <ArrowDownToLine size={15} className="text-muted-foreground" />
+          </a>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function SocialLink({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
   return <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" aria-label={label} className="flex items-center gap-2 transition-colors hover:text-primary">{children}<span>{label}</span></a>;
 }
