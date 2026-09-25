@@ -3,6 +3,7 @@ import {
   ArrowDownToLine,
   ArrowUpRight,
   BadgeCheck,
+  ChevronDown,
   ExternalLink,
   Github,
   Linkedin,
@@ -11,8 +12,10 @@ import {
   Phone,
 } from "lucide-react";
 import heroImage from "../assets/data-network-hero.jpg";
-
-const resumeUrl = "/Yogita_Bisht_Resume.pdf";
+import aiResumeAsset from "../assets/Yogita_Bisht_Resume_AI.pdf.asset.json";
+import dsResumeAsset from "../assets/Yogita_Bisht_Resume_DS.pdf.asset.json";
+import anthropicApiCertificate from "../assets/Yogita_Bisht_Claude_Anthropic_API.pdf.asset.json";
+import claudeCodeCertificate from "../assets/Yogita_Bisht_Claude_Code_101.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,16 +41,23 @@ const projects = [
   },
   {
     number: "02",
-    title: "Financial Recommendation Engine",
-    description: "A recommendation system that matches user profiles against 26K+ financial products and gives a reason for each suggestion.",
-    impact: "0.94 F1 risk classifier",
+    title: "Personalized Financial Recommendation System",
+    description: "A Streamlit app that matches user profiles against 26K+ financial products and generates personalized explanations through a RAG pipeline.",
+    impact: "0.94 F1-score",
     tags: ["Python", "XGBoost", "MLflow", "RAG", "Streamlit"],
   },
   {
     number: "03",
+    title: "Banking Audit Extraction via LoRA",
+    description: "Llama-3.2-3B fine-tuned with LoRA on 300 domain-specific audit records to extract structured JSON metadata from unstructured banking logs.",
+    impact: "54% → 94% JSON pass rate",
+    tags: ["Llama 3.2", "LoRA", "Fine-tuning", "JSON", "GGUF"],
+  },
+  {
+    number: "04",
     title: "Melanoma Detection Research",
-    description: "A comparison of CNN and Vision Transformer models for melanoma detection on a heavily imbalanced medical image dataset.",
-    impact: "95% sensitivity · 0.96 AUC",
+    description: "Four hybrid CNN–Vision Transformer architectures benchmarked for melanoma detection on a severely imbalanced medical image dataset.",
+    impact: "95% sensitivity · 0.96 AUC-ROC",
     tags: ["PyTorch", "ViT", "CNN", "Computer Vision", "400K+ images"],
   },
 ];
@@ -64,14 +74,14 @@ const certificates = [
     name: "Claude with the Anthropic API",
     issuer: "Anthropic",
     date: "August 2026",
-    fileUrl: "/certificates/claude-with-the-anthropic-api.pdf",
+    fileUrl: anthropicApiCertificate.url,
     downloadName: "Yogita_Bisht_Claude_Anthropic_API.pdf",
   },
   {
     name: "Claude Code 101",
     issuer: "Anthropic",
     date: "July 2026",
-    fileUrl: "/certificates/claude-code-101.pdf",
+    fileUrl: claudeCodeCertificate.url,
     downloadName: "Yogita_Bisht_Claude_Code_101.pdf",
   },
 ];
@@ -129,14 +139,14 @@ function Portfolio() {
             <div>
               <h2 className="max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-4xl">From vehicle diagnostics to data science.</h2>
               <div className="mt-8 grid gap-8 text-muted-foreground md:grid-cols-2">
-                <p className="leading-7">At Mercedes-Benz R&amp;D I worked on data pipelines over 500GB+ of vehicle fault logs, and on test automation that helped engineers find critical issues sooner.</p>
+                <p className="leading-7">At Mercedes-Benz R&amp;D I worked on AWS Glue ETL jobs parsing 500GB+ of vehicle ECU fault logs, and on test automation for diagnostic feature releases.</p>
                 <p className="leading-7">I’m now studying data science at Northeastern and doing research alongside it — recommendation systems that explain their suggestions, and medical vision models trained to catch rare cases.</p>
               </div>
               <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-4">
-                <Metric value="500GB+" label="ECU logs engineered" />
-                <Metric value="20%" label="Fewer missed errors" />
+                <Metric value="500GB+" label="ECU fault logs parsed" />
+                <Metric value="20%" label="Fewer undetected diagnostic errors" />
                 <Metric value="95%" label="Test coverage" />
-                <Metric value="400K+" label="Research images" />
+                <Metric value="25%" label="Faster field issue resolution" />
               </div>
             </div>
           </div>
@@ -148,7 +158,7 @@ function Portfolio() {
               <SectionLabel number="02" label="Selected work" />
               <h2 className="font-display text-3xl font-semibold sm:text-4xl">A few projects I’ve worked on.</h2>
             </div>
-            <div className="mt-12 grid gap-4 lg:grid-cols-3">
+            <div className="mt-12 grid gap-4 md:grid-cols-2">
               {projects.map((project) => <ProjectCard key={project.number} {...project} />)}
             </div>
           </div>
@@ -221,14 +231,24 @@ function Portfolio() {
 
 function ResumeDownload() {
   return (
-    <a
-      href={resumeUrl}
-      download="Yogita_Bisht_Resume.pdf"
-      target="_blank"
-      rel="noreferrer"
-      className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background/50 px-5 text-sm font-semibold transition-colors hover:border-foreground/50 hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-    >
-      <ArrowDownToLine size={17} /> Download resume
+    <details className="group relative">
+      <summary className="flex h-12 cursor-pointer list-none items-center gap-2 rounded-md border border-border bg-background/50 px-5 text-sm font-semibold transition-colors hover:border-foreground/50 hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+        <ArrowDownToLine size={17} /> Download resume
+        <ChevronDown size={15} className="transition-transform group-open:rotate-180" />
+      </summary>
+      <div className="absolute left-0 z-20 mt-2 w-64 overflow-hidden rounded-md border border-border bg-card shadow-xl">
+        <ResumeOption href={dsResumeAsset.url} download="Yogita_Bisht_Resume_DS.pdf" title="Data Science resume" detail="Data science and ML roles" />
+        <ResumeOption href={aiResumeAsset.url} download="Yogita_Bisht_Resume_AI.pdf" title="AI resume" detail="AI and GenAI roles" />
+      </div>
+    </details>
+  );
+}
+
+function ResumeOption({ href, download, title, detail }: { href: string; download: string; title: string; detail: string }) {
+  return (
+    <a href={href} download={download} target="_blank" rel="noreferrer" className="flex items-center justify-between gap-4 border-b border-border/70 px-4 py-3 last:border-b-0 hover:bg-muted/60">
+      <span><span className="block text-sm font-semibold">{title}</span><span className="mt-0.5 block text-xs text-muted-foreground">{detail}</span></span>
+      <ArrowDownToLine size={15} className="shrink-0 text-primary" />
     </a>
   );
 }
