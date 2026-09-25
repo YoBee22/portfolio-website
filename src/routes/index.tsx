@@ -49,7 +49,7 @@ const projects = [
   {
     number: "03",
     title: "Banking Audit Extraction via LoRA",
-    description: "A fine-tuned Llama model that extracts structured JSON metadata from unstructured banking audit logs.",
+    description: "Llama-3.2-3B fine-tuned with LoRA on 300 domain-specific audit records to extract structured JSON metadata from unstructured banking logs.",
     impact: "54% → 94% JSON pass rate",
     tags: ["Llama 3.2", "LoRA", "Fine-tuning", "JSON", "GGUF"],
   },
