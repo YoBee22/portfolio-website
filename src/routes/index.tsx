@@ -63,10 +63,9 @@ const projects = [
 ];
 
 const skills = [
-  { label: "Core languages", values: ["Python", "SQL", "Bash / Linux"] },
-  { label: "Data engineering", values: ["PySpark", "Airflow", "AWS Glue", "Pinecone"] },
-  { label: "Machine learning / AI", values: ["PyTorch", "Scikit-learn", "XGBoost", "LangChain", "RAG"] },
-  { label: "Cloud / operations", values: ["AWS", "GCP", "Docker", "GitHub Actions", "MLflow"] },
+  { label: "Languages & frameworks", values: ["Python", "Pandas", "NumPy", "Scikit-learn", "SQL", "PyTorch", "FastAPI", "Streamlit"] },
+  { label: "Machine learning & AI", values: ["LLMs", "Fine-tuning", "RAG", "LangChain", "Vector DB", "MLflow"] },
+  { label: "Cloud, big data & DevOps", values: ["AWS", "GCP", "Airflow", "PySpark", "Docker", "CI/CD", "Git", "Power BI", "Bash / Linux"] },
 ];
 
 const certificates = [
@@ -140,7 +139,7 @@ function Portfolio() {
               <h2 className="max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-4xl">From vehicle diagnostics to data science.</h2>
               <div className="mt-8 grid gap-8 text-muted-foreground md:grid-cols-2">
                 <p className="leading-7">At Mercedes-Benz R&amp;D I worked on AWS Glue ETL jobs parsing 500GB+ of vehicle ECU fault logs, and on test automation for diagnostic feature releases.</p>
-                <p className="leading-7">I’m now studying data science at Northeastern and doing research alongside it — recommendation systems that explain their suggestions, and medical vision models trained to catch rare cases.</p>
+                <p className="leading-7">I completed my Master's in Data Science at Northeastern in May 2026. Last summer I did research there — recommendation systems that explain their suggestions, and medical vision models trained to catch rare cases.</p>
               </div>
               <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-4">
                 <Metric value="500GB+" label="ECU fault logs parsed" />
