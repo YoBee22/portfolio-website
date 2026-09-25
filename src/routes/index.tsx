@@ -63,10 +63,9 @@ const projects = [
 ];
 
 const skills = [
-  { label: "Core languages", values: ["Python", "SQL", "Bash / Linux"] },
-  { label: "Data engineering", values: ["PySpark", "Airflow", "AWS Glue", "Pinecone"] },
-  { label: "Machine learning / AI", values: ["PyTorch", "Scikit-learn", "XGBoost", "LangChain", "RAG"] },
-  { label: "Cloud / operations", values: ["AWS", "GCP", "Docker", "GitHub Actions", "MLflow"] },
+  { label: "Languages & frameworks", values: ["Python", "Pandas", "NumPy", "Scikit-learn", "SQL", "PyTorch", "FastAPI", "Streamlit"] },
+  { label: "Machine learning & AI", values: ["LLMs", "Fine-tuning", "RAG", "LangChain", "Vector DB", "MLflow"] },
+  { label: "Cloud, big data & DevOps", values: ["AWS", "GCP", "Airflow", "PySpark", "Docker", "CI/CD", "Git", "Power BI", "Bash / Linux"] },
 ];
 
 const certificates = [
