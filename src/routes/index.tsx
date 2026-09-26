@@ -139,7 +139,7 @@ function Portfolio() {
               <h2 className="max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-4xl">From vehicle diagnostics to data science.</h2>
               <div className="mt-8 grid gap-8 text-muted-foreground md:grid-cols-2">
                 <p className="leading-7">With a foundation in computer science and data engineering, my early work focused on building resilient backend architectures, scalable data pipelines, and high-reliability systems. At Mercedes-Benz R&amp;D, I applied these core principles to engineer production data pipelines for high-volume vehicle data.</p>
-                <p className="leading-7">I expanded into data science during my Master’s at Northeastern, bridging software engineering with modern AI to build intelligent, end-to-end ML systems.</p>
+                <p className="leading-7">I expanded into data science during my Master’s at Northeastern, bridging software engineering with modern AI to build intelligent, end-to-end ML systems. During my time there, I worked as a research assistant training vision models for Skin Cancer detection alongside developing other ML systems.</p>
               </div>
               <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-4">
                 <Metric value="500GB+" label="ECU fault logs parsed" />
