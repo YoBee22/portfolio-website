@@ -3,7 +3,6 @@ import {
   ArrowDownToLine,
   ArrowUpRight,
   BadgeCheck,
-  ChevronDown,
   ExternalLink,
   Github,
   Linkedin,
@@ -13,7 +12,6 @@ import {
 } from "lucide-react";
 import heroImage from "../assets/data-network-hero.jpg";
 import aiResumeAsset from "../assets/Yogita_Bisht_Resume_AI.pdf.asset.json";
-import dsResumeAsset from "../assets/Yogita_Bisht_Resume_DS.pdf.asset.json";
 import anthropicApiCertificate from "../assets/Yogita_Bisht_Claude_Anthropic_API.pdf.asset.json";
 import claudeCodeCertificate from "../assets/Yogita_Bisht_Claude_Code_101.pdf.asset.json";
 
@@ -230,24 +228,12 @@ function Portfolio() {
 
 function ResumeDownload() {
   return (
-    <details className="group relative">
-      <summary className="flex h-12 cursor-pointer list-none items-center gap-2 rounded-md border border-border bg-background/50 px-5 text-sm font-semibold transition-colors hover:border-foreground/50 hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-        <ArrowDownToLine size={17} /> Download resume
-        <ChevronDown size={15} className="transition-transform group-open:rotate-180" />
-      </summary>
-      <div className="absolute left-0 z-20 mt-2 w-64 overflow-hidden rounded-md border border-border bg-card shadow-xl">
-        <ResumeOption href={dsResumeAsset.url} download="Yogita_Bisht_Resume_DS.pdf" title="Data Science resume" detail="Data science and ML roles" />
-        <ResumeOption href={aiResumeAsset.url} download="Yogita_Bisht_Resume_AI.pdf" title="AI resume" detail="AI and GenAI roles" />
-      </div>
-    </details>
-  );
-}
-
-function ResumeOption({ href, download, title, detail }: { href: string; download: string; title: string; detail: string }) {
-  return (
-    <a href={href} download={download} target="_blank" rel="noreferrer" className="flex items-center justify-between gap-4 border-b border-border/70 px-4 py-3 last:border-b-0 hover:bg-muted/60">
-      <span><span className="block text-sm font-semibold">{title}</span><span className="mt-0.5 block text-xs text-muted-foreground">{detail}</span></span>
-      <ArrowDownToLine size={15} className="shrink-0 text-primary" />
+    <a
+      href={aiResumeAsset.url}
+      download="Yogita_Bisht_Resume_AI.pdf"
+      className="flex h-12 items-center gap-2 rounded-md border border-border bg-background/50 px-5 text-sm font-semibold transition-colors hover:border-foreground/50 hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+    >
+      <ArrowDownToLine size={17} /> Download resume
     </a>
   );
 }
