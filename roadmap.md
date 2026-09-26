@@ -1,5 +1,5 @@
 ## Done
-- Resume download dropdown (DS + AI options) replacing single resume button
+- Download resume button serves only Yogita_Bisht_Resume_AI.pdf (dropdown removed)
 - Project cards compacted (smaller padding, title, min-height removed)
 - Footer tagline simplified to 'Get in touch.'
 - LinkedIn link verified (linkedin.com/in/yogita-bisht/, target=_blank, confirmed by user)
