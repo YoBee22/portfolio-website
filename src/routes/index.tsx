@@ -116,7 +116,7 @@ function Portfolio() {
                 Hi, I’m Yogita Bisht.
               </h1>
               <p className="mt-7 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-                I work on machine learning models and the data pipelines behind them, and I pay attention to how they behave once people actually start using them.
+                I build machine learning models and the data pipelines that power them; focusing on scalable cloud architecture, and how systems actually hold up under real-world usage.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a href="#projects" className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-5 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5">View projects <ArrowUpRight size={17} /></a>
@@ -138,8 +138,8 @@ function Portfolio() {
             <div>
               <h2 className="max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-4xl">From vehicle diagnostics to data science.</h2>
               <div className="mt-8 grid gap-8 text-muted-foreground md:grid-cols-2">
-                <p className="leading-7">At Mercedes-Benz R&amp;D I worked on AWS Glue ETL jobs parsing 500GB+ of vehicle ECU fault logs, and on test automation for diagnostic feature releases.</p>
-                <p className="leading-7">I completed my Master's in Data Science at Northeastern in May 2026. Last summer I did research there — recommendation systems that explain their suggestions, and medical vision models trained to catch rare cases.</p>
+                <p className="leading-7">With a foundation in computer science and data engineering, my early work focused on building resilient backend architectures, scalable data pipelines, and high-reliability systems. At Mercedes-Benz R&amp;D, I applied these core principles to engineer production data pipelines for high-volume vehicle data.</p>
+                <p className="leading-7">I expanded into data science during my Master’s at Northeastern, bridging software engineering with modern AI to build intelligent, end-to-end ML systems.</p>
               </div>
               <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-4">
                 <Metric value="500GB+" label="ECU fault logs parsed" />
